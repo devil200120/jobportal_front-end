@@ -1,0 +1,3983 @@
+/* Neumorphic Design System - Advanced Implementation */
+:root {
+  /* Neumorphic Color Palette */
+  --neuro-bg-primary: #e0e5ec;
+  --neuro-bg-secondary: #f0f3f7;
+  --neuro-bg-tertiary: #d1d9e6;
+  
+  /* Shadow Colors */
+  --neuro-shadow-light: #ffffff;
+  --neuro-shadow-dark: #a3b1c6;
+  --neuro-shadow-darker: #9baacf;
+  
+  /* Accent Colors */
+  --neuro-accent-primary: #667eea;
+  --neuro-accent-secondary: #764ba2;
+  --neuro-accent-success: #56ab2f;
+  --neuro-accent-warning: #f093fb;
+  
+  /* Text Colors */
+  --neuro-text-primary: #4a5568;
+  --neuro-text-secondary: #718096;
+  --neuro-text-muted: #a0aec0;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 2vw, 1rem);
+  --font-size-base: clamp(1rem, 2.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 3vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 3.5vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 4vw, 2rem);
+  --font-size-3xl: clamp(2rem, 5vw, 2.5rem);
+  --font-size-4xl: clamp(2.5rem, 6vw, 3.5rem);
+  --font-size-5xl: clamp(3.5rem, 8vw, 5rem);
+  
+  /* Spacing */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1.5vw, 0.75rem);
+  --space-md: clamp(1rem, 2vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 3vw, 2rem);
+  --space-xl: clamp(2rem, 4vw, 3rem);
+  --space-2xl: clamp(3rem, 5vw, 4rem);
+  --space-3xl: clamp(4rem, 6vw, 6rem);
+  
+  /* Neumorphic Shadows */
+  --neuro-shadow-raised: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+  
+  --neuro-shadow-pressed: 
+    inset 6px 6px 12px var(--neuro-shadow-dark),
+    inset -6px -6px 12px var(--neuro-shadow-light);
+    
+  --neuro-shadow-flat: 
+    3px 3px 6px var(--neuro-shadow-dark),
+    -3px -3px 6px var(--neuro-shadow-light);
+    
+  --neuro-shadow-floating: 
+    8px 8px 16px var(--neuro-shadow-dark),
+    -8px -8px 16px var(--neuro-shadow-light),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 50%;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--neuro-text-primary);
+  background: var(--neuro-bg-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* NEUMORPHIC CIRCULAR LOGO SYSTEM */
+/* NEUMORPHIC CIRCULAR LOGO SYSTEM - IMPROVED */
+.logo-circular-neumorphic,
+.hero-logo-circular-neumorphic,
+.section-logo-circular-neumorphic,
+.contact-logo-circular-neumorphic,
+.footer-logo-circular-neumorphic,
+.badge-logo-circular-neumorphic,
+.about-logo-circular-neumorphic {
+  /* Perfect Circular Shape */
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  object-position: center;
+  
+  /* Enhanced Neumorphic Shadow Effects */
+  box-shadow: var(--neuro-shadow-raised);
+  
+  /* Smooth Transition Effects */
+  transition: all var(--transition-normal);
+  
+  /* Prevent distortion */
+  max-width: 100%;
+  height: auto;
+  
+  /* Enhanced border for better definition */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced Neumorphic Hover Effects for Interactive Logos */
+.logo-circular-neumorphic:hover,
+.hero-logo-circular-neumorphic:hover,
+.contact-logo-circular-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px) scale(1.05);
+  border-color: var(--neuro-accent-primary);
+}
+
+/* Active/Pressed State */
+.logo-circular-neumorphic:active,
+.hero-logo-circular-neumorphic:active {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: scale(0.98);
+}
+
+/* Neumorphic Container System */
+.container-neumorphic {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container-neumorphic {
+    padding: 0 var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-neumorphic {
+    padding: 0 var(--space-xl);
+  }
+}
+
+/* Neumorphic Navigation */
+.navbar-neumorphic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-neumorphic.scrolled {
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.nav-container-neumorphic {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Neumorphic Logo Section */
+/* Enhanced Neumorphic Logo Section */
+.logo-section-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-section-neumorphic:hover {
+  transform: translateX(2px);
+}
+
+/* Enhanced Logo Wrapper */
+.logo-wrapper-neumorphic {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  border-radius: var(--radius-full);
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.logo-wrapper-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Enhanced Navigation Logo */
+.logo-wrapper-neumorphic .logo-circular-neumorphic {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  object-position: center;
+  
+  /* Enhanced shadow for definition */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+  
+  /* Enhanced border */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced hover effect for navigation logo */
+.logo-wrapper-neumorphic:hover .logo-circular-neumorphic {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--neuro-accent-primary);
+}
+
+/* Enhanced Logo Glow Effect */
+.logo-glow-neumorphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, var(--neuro-accent-primary) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(8px);
+  z-index: 1;
+}
+
+.logo-wrapper-neumorphic:hover .logo-glow-neumorphic {
+  opacity: 0.4;
+}
+
+/* Enhanced Brand Identity */
+.brand-identity-neumorphic {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-left: var(--space-sm);
+}
+
+.brand-name-neumorphic {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+}
+
+.brand-subtitle-neumorphic {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--neuro-accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Neumorphic Navigation Menu */
+.nav-menu-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.nav-item-neumorphic {
+  position: relative;
+}
+
+.nav-link-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--neuro-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all var(--transition-normal);
+}
+
+.nav-link-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  transform: translateY(-1px);
+}
+
+.nav-link-neumorphic.active {
+  box-shadow: var(--neuro-shadow-pressed);
+  color: var(--neuro-accent-primary);
+}
+
+.nav-icon-neumorphic {
+  font-size: var(--font-size-sm);
+}
+
+/* Neumorphic CTA Button */
+.cta-button-neumorphic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+}
+
+.cta-button-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+  color: var(--neuro-accent-primary);
+}
+
+.cta-button-neumorphic:active {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: translateY(0);
+}
+
+/* Mobile Toggle */
+.mobile-toggle-neumorphic {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: var(--space-sm);
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all var(--transition-normal);
+}
+
+.mobile-toggle-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.toggle-line-neumorphic {
+  width: 20px;
+  height: 3px;
+  background: var(--neuro-text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+/* Neumorphic Hero Section */
+.hero-neumorphic {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neuro-bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neumorphic Background Shapes */
+.hero-background-neumorphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.neumorphic-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape-circle,
+.shape-square,
+.shape-triangle {
+  position: absolute;
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-flat);
+  opacity: 0.5;
+  animation: float-neumorphic 15s ease-in-out infinite;
+}
+
+.shape-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-full);
+}
+
+.shape-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  top: 60%;
+  right: 20%;
+  animation-delay: 5s;
+}
+
+.shape-square {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+}
+
+.shape-3 {
+  bottom: 30%;
+  left: 60%;
+  animation-delay: 10s;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 60px solid var(--neuro-bg-primary);
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(3px 3px 6px var(--neuro-shadow-dark));
+}
+
+.shape-4 {
+  top: 40%;
+  left: 80%;
+  animation-delay: 7s;
+}
+
+/* Hero Content */
+.hero-content-neumorphic {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-md);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-content-neumorphic {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+}
+
+/* Neumorphic Hero Logo */
+.hero-logo-neumorphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container-neumorphic {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-full);
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-slow);
+}
+
+.logo-container-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: scale(1.02);
+}
+
+.hero-logo-circular-neumorphic {
+  width: 160px;
+  height: 160px;
+  z-index: 2;
+  position: relative;
+}
+
+.logo-shadow-layers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shadow-layer {
+  position: absolute;
+  border-radius: var(--radius-full);
+  opacity: 0.1;
+}
+
+.layer-1 {
+  width: 220px;
+  height: 220px;
+  top: -110px;
+  left: -110px;
+  box-shadow: var(--neuro-shadow-flat);
+}
+
+.layer-2 {
+  width: 240px;
+  height: 240px;
+  top: -120px;
+  left: -120px;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.layer-3 {
+  width: 260px;
+  height: 260px;
+  top: -130px;
+  left: -130px;
+  box-shadow: var(--neuro-shadow-floating);
+}
+
+/* Neumorphic Typography */
+.hero-title-neumorphic {
+  font-size: var(--font-size-5xl);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+  color: var(--neuro-text-primary);
+}
+
+.title-word-neumorphic {
+  display: block;
+  text-shadow: 2px 2px 4px var(--neuro-shadow-light);
+}
+
+.title-word-neumorphic.accent {
+  color: var(--neuro-accent-primary);
+  text-shadow: 2px 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.hero-description-neumorphic {
+  font-size: var(--font-size-lg);
+  color: var(--neuro-text-secondary);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-description-neumorphic {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Neumorphic Stats Grid */
+.stats-grid-neumorphic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.stat-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.stat-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-3px);
+}
+
+.stat-inner-neumorphic {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.stat-number-neumorphic {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--neuro-accent-primary);
+  margin-bottom: var(--space-sm);
+  text-shadow: 1px 1px 2px rgba(102, 126, 234, 0.2);
+}
+
+.stat-label-neumorphic {
+  font-size: var(--font-size-sm);
+  color: var(--neuro-text-secondary);
+  font-weight: 500;
+}
+
+/* Neumorphic Action Buttons */
+.hero-actions-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .hero-actions-neumorphic {
+    justify-content: flex-start;
+  }
+}
+
+.primary-button-neumorphic,
+.secondary-button-neumorphic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-xl);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+}
+
+.primary-button-neumorphic {
+  box-shadow: var(--neuro-shadow-raised);
+  background: linear-gradient(135deg, var(--neuro-accent-primary), var(--neuro-accent-secondary));
+  color: white;
+}
+
+.primary-button-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-3px);
+}
+
+.primary-button-neumorphic:active {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: translateY(0);
+}
+
+.secondary-button-neumorphic {
+  box-shadow: var(--neuro-shadow-flat);
+}
+
+.secondary-button-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  transform: translateY(-2px);
+  color: var(--neuro-accent-primary);
+}
+
+.secondary-button-neumorphic:active {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: translateY(0);
+}
+
+/* Neumorphic Scroll Indicator */
+.scroll-indicator-neumorphic {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce-neumorphic 2s infinite;
+}
+
+.scroll-arrow-neumorphic {
+  width: 50px;
+  height: 50px;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-full);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-lg);
+  transition: all var(--transition-normal);
+}
+
+.scroll-arrow-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  color: var(--neuro-accent-primary);
+}
+
+/* Services Section */
+.services-neumorphic {
+  padding: var(--space-3xl) 0;
+  background: var(--neuro-bg-secondary);
+}
+
+.section-header-neumorphic {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-logo-neumorphic {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  justify-content: center;
+}
+
+.section-logo-circular-neumorphic {
+  width: 60px;
+  height: 60px;
+}
+
+.section-title-neumorphic {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px var(--neuro-shadow-light);
+}
+
+.section-subtitle-neumorphic {
+  font-size: var(--font-size-lg);
+  color: var(--neuro-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Neumorphic Services Grid */
+.services-grid-neumorphic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.service-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.service-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-5px);
+}
+
+.service-inner-neumorphic {
+  padding: var(--space-2xl);
+}
+
+.service-icon-neumorphic {
+  width: 70px;
+  height: 70px;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  color: var(--neuro-accent-primary);
+  margin-bottom: var(--space-lg);
+  transition: all var(--transition-normal);
+}
+
+.service-card-neumorphic:hover .service-icon-neumorphic {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: scale(1.05);
+}
+
+.service-title-neumorphic {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.service-description-neumorphic {
+  color: var(--neuro-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.service-features-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.feature-item-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  padding: var(--space-sm);
+  background: var(--neuro-bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.feature-item-neumorphic i {
+  color: var(--neuro-accent-success);
+}
+
+/* About Section */
+.about-neumorphic {
+  padding: var(--space-3xl) 0;
+  background: var(--neuro-bg-primary);
+}
+
+.about-grid-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-grid-neumorphic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-badge-neumorphic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-full);
+  padding: var(--space-sm) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--neuro-shadow-flat);
+  color: var(--neuro-text-primary);
+  font-weight: 600;
+}
+
+.badge-logo-circular-neumorphic {
+  width: 24px;
+  height: 24px;
+}
+
+.about-title-neumorphic {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px var(--neuro-shadow-light);
+}
+
+.about-description-neumorphic {
+  font-size: var(--font-size-lg);
+  color: var(--neuro-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+.about-achievements-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.achievement-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.achievement-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateX(5px);
+}
+
+.achievement-inner-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+}
+
+.achievement-icon-neumorphic {
+  width: 50px;
+  height: 50px;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-full);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neuro-accent-primary);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.achievement-content-neumorphic h4 {
+  font-weight: 700;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.achievement-content-neumorphic p {
+  color: var(--neuro-text-secondary);
+  margin: 0;
+}
+
+/* About Visual */
+.about-visual-neumorphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual-container-neumorphic {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: var(--radius-full);
+  background: var(--neuro-bg-primary);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-slow);
+}
+
+.visual-container-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: rotate(5deg) scale(1.05);
+}
+
+.about-logo-circular-neumorphic {
+  width: 200px;
+  height: 200px;
+}
+
+/* Contact Section */
+.contact-neumorphic {
+  padding: var(--space-3xl) 0;
+  background: var(--neuro-bg-secondary);
+}
+
+.contact-grid-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-grid-neumorphic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-logo-neumorphic {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.contact-logo-circular-neumorphic {
+  width: 60px;
+  height: 60px;
+}
+
+.contact-title-neumorphic {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  text-shadow: 2px 2px 4px var(--neuro-shadow-light);
+}
+
+.contact-description-neumorphic {
+  font-size: var(--font-size-lg);
+  color: var(--neuro-text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+}
+
+.contact-methods-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-method-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.contact-method-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.method-inner-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+}
+
+.method-icon-neumorphic {
+  width: 50px;
+  height: 50px;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-full);
+  box-shadow: var(--neuro-shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neuro-accent-primary);
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.method-details-neumorphic h4 {
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.method-details-neumorphic a {
+  color: var(--neuro-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.method-details-neumorphic a:hover {
+  color: var(--neuro-accent-primary);
+}
+
+/* Neumorphic Contact Form */
+.contact-form-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--neuro-shadow-raised);
+  overflow: hidden;
+}
+
+.form-inner-neumorphic {
+  padding: var(--space-2xl);
+}
+
+.form-title-neumorphic {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--neuro-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  text-shadow: 1px 1px 2px var(--neuro-shadow-light);
+}
+
+.form-group-neumorphic {
+  margin-bottom: var(--space-lg);
+}
+
+.form-input-neumorphic {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--neuro-text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  box-shadow: var(--neuro-shadow-pressed);
+  transition: all var(--transition-normal);
+}
+
+.form-input-neumorphic::placeholder {
+  color: var(--neuro-text-muted);
+}
+
+.form-input-neumorphic:focus {
+  outline: none;
+  box-shadow: 
+    var(--neuro-shadow-pressed),
+    0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-submit-neumorphic {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, var(--neuro-accent-primary), var(--neuro-accent-secondary));
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all var(--transition-normal);
+}
+
+.form-submit-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.form-submit-neumorphic:active {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: translateY(0);
+}
+
+/* Footer */
+.footer-neumorphic {
+  background: var(--neuro-bg-tertiary);
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.footer-content-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .footer-content-neumorphic {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer-logo-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-logo-circular-neumorphic {
+  width: 48px;
+  height: 48px;
+}
+
+.footer-brand-text-neumorphic {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-name {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  line-height: 1;
+}
+
+.footer-brand-tagline {
+  font-size: var(--font-size-xs);
+  color: var(--neuro-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footer-description-neumorphic {
+  color: var(--neuro-text-secondary);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.footer-links-neumorphic {
+  display: flex;
+  gap: var(--space-2xl);
+}
+
+.footer-section-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-section-neumorphic h4 {
+  color: var(--neuro-text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.footer-section-neumorphic a {
+  color: var(--neuro-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  padding: var(--space-xs) 0;
+}
+
+.footer-section-neumorphic a:hover {
+  color: var(--neuro-accent-primary);
+}
+
+.footer-bottom-neumorphic {
+  text-align: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--neuro-shadow-dark);
+  color: var(--neuro-text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu-neumorphic {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--neuro-bg-primary);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+    box-shadow: var(--neuro-shadow-floating);
+    transition: right var(--transition-normal);
+    z-index: 1001;
+  }
+  
+  .nav-menu-neumorphic.active {
+    right: 0;
+  }
+  
+  .mobile-toggle-neumorphic {
+    display: flex;
+  }
+  
+  /* Adjust logo sizes */
+  .logo-circular-neumorphic {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .hero-logo-circular-neumorphic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .logo-container-neumorphic {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .section-logo-circular-neumorphic {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .contact-logo-circular-neumorphic {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .footer-logo-circular-neumorphic {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .badge-logo-circular-neumorphic {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .about-logo-circular-neumorphic {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .visual-container-neumorphic {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .brand-identity-neumorphic {
+    display: none;
+  }
+  
+  .stats-grid-neumorphic {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .hero-actions-neumorphic {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .services-grid-neumorphic {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-wrapper-neumorphic {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-circular-neumorphic {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .hero-logo-circular-neumorphic {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .logo-container-neumorphic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .about-logo-circular-neumorphic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .visual-container-neumorphic {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .stats-grid-neumorphic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Neumorphic Animations */
+@keyframes float-neumorphic {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% { 
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% { 
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+@keyframes bounce-neumorphic {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Utility Classes */
+.neumorphic-inset {
+  box-shadow: var(--neuro-shadow-pressed) !important;
+}
+
+.neumorphic-raised {
+  box-shadow: var(--neuro-shadow-raised) !important;
+}
+
+.neumorphic-floating {
+  box-shadow: var(--neuro-shadow-floating) !important;
+}
+
+/* Print Styles */
+@media print {
+  .navbar-neumorphic,
+  .mobile-toggle-neumorphic,
+  .scroll-indicator-neumorphic {
+    display: none;
+  }
+  
+  .hero-neumorphic {
+    min-height: auto;
+    padding: var(--space-xl) 0;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --neuro-bg-primary: #ffffff;
+    --neuro-bg-secondary: #f8f9fa;
+    --neuro-text-primary: #000000;
+    --neuro-shadow-dark: #000000;
+    --neuro-shadow-light: #ffffff;
+  }
+}
+
+/* Modal System - Neumorphic */
+.modal-overlay-neumorphic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(160, 174, 192, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay-neumorphic.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: 20px;
+  padding: var(--space-xl);
+  max-width: 450px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--neuro-shadow-raised);
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.modal-container-neumorphic.large {
+  max-width: 1000px;
+  width: 95%;
+}
+
+.modal-overlay-neumorphic.active .modal-container-neumorphic {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header-neumorphic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.modal-logo-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.modal-logo-circular-neumorphic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.modal-title-neumorphic h2 {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.modal-title-neumorphic p {
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.modal-close-neumorphic {
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+}
+
+.modal-close-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-pressed);
+  color: var(--neuro-accent-primary);
+}
+
+/* Authentication Forms */
+.auth-form-neumorphic {
+  width: 100%;
+}
+
+.auth-header-neumorphic {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.auth-title-neumorphic {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.auth-subtitle-neumorphic {
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+.form-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group-neumorphic {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.input-wrapper-neumorphic {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-neumorphic {
+  position: absolute;
+  left: 16px;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  z-index: 1;
+}
+
+.form-input-neumorphic {
+  width: 100%;
+  padding: 16px 16px 16px 50px;
+  border: none;
+  border-radius: 12px;
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light);
+  transition: all 0.2s ease;
+}
+
+.form-input-neumorphic:focus {
+  outline: none;
+  box-shadow: inset 6px 6px 12px var(--neuro-shadow-dark),
+              inset -6px -6px 12px var(--neuro-shadow-light);
+}
+
+.form-input-neumorphic::placeholder {
+  color: var(--neuro-text-muted);
+}
+
+.password-toggle-neumorphic {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--neuro-text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.password-toggle-neumorphic:hover {
+  color: var(--neuro-accent-primary);
+}
+
+.form-options-neumorphic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--space-sm) 0;
+}
+
+.checkbox-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.checkbox-neumorphic input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark-neumorphic {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--neuro-bg-primary);
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkbox-neumorphic input[type="checkbox"]:checked + .checkmark-neumorphic {
+  background: var(--neuro-accent-primary);
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.checkbox-neumorphic input[type="checkbox"]:checked + .checkmark-neumorphic::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.forgot-link-neumorphic {
+  color: var(--neuro-accent-primary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color 0.2s ease;
+}
+
+.forgot-link-neumorphic:hover {
+  color: var(--neuro-accent-secondary);
+}
+
+.auth-submit-neumorphic {
+  background: var(--neuro-accent-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  margin-top: var(--space-md);
+}
+
+.auth-submit-neumorphic:hover {
+  background: var(--neuro-accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.auth-submit-neumorphic:active {
+  transform: translateY(0);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+/* Social Login */
+.auth-divider-neumorphic {
+  text-align: center;
+  margin: var(--space-lg) 0;
+  position: relative;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.auth-divider-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--neuro-shadow-dark);
+}
+
+.auth-divider-neumorphic span {
+  background: var(--neuro-bg-primary);
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.social-login-neumorphic {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.social-btn-neumorphic {
+  flex: 1;
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.social-btn-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-pressed);
+  transform: translateY(1px);
+}
+
+.social-btn-neumorphic.google:hover {
+  color: #db4437;
+}
+
+.social-btn-neumorphic.linkedin:hover {
+  color: #0077b5;
+}
+
+.auth-switch-neumorphic {
+  text-align: center;
+  margin-top: var(--space-lg);
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.auth-switch-neumorphic a {
+  color: var(--neuro-accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.auth-switch-neumorphic a:hover {
+  color: var(--neuro-accent-secondary);
+}
+
+/* User Type Selector */
+.user-type-selector-neumorphic {
+  display: flex;
+  background: var(--neuro-bg-primary);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: var(--space-lg);
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.user-type-option-neumorphic {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.user-type-option-neumorphic.active {
+  background: var(--neuro-accent-primary);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.user-type-option-neumorphic:hover:not(.active) {
+  color: var(--neuro-text-primary);
+}
+
+/* Enhanced Navigation Buttons */
+.nav-actions-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hire-now-btn {
+  background: var(--neuro-accent-success);
+  color: white;
+}
+
+.hire-now-btn:hover {
+  background: #4a7c34;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(86, 171, 47, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-container-neumorphic {
+    max-width: 95%;
+    padding: var(--space-lg);
+  }
+  
+  .form-row-neumorphic {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-login-neumorphic {
+    flex-direction: column;
+  }
+  
+  .user-type-selector-neumorphic {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .nav-actions-neumorphic .cta-button-neumorphic {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-container-neumorphic {
+    padding: var(--space-md);
+  }
+  
+  .auth-title-neumorphic {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Phase 2: Job Search Section & Recruiter Dashboard */
+
+/* Job Search Section */
+.job-search-neumorphic {
+  padding: var(--space-3xl) 0;
+  background: var(--neuro-bg-secondary);
+  position: relative;
+}
+
+.job-search-form-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.search-inputs-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.search-input-group-neumorphic {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-group-neumorphic i {
+  position: absolute;
+  left: 16px;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  z-index: 1;
+}
+
+.search-input-neumorphic {
+  width: 100%;
+  padding: 16px 16px 16px 50px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light);
+  transition: all 0.2s ease;
+}
+
+.search-input-neumorphic:focus {
+  outline: none;
+  box-shadow: inset 6px 6px 12px var(--neuro-shadow-dark),
+              inset -6px -6px 12px var(--neuro-shadow-light);
+}
+
+.search-input-neumorphic::placeholder {
+  color: var(--neuro-text-muted);
+}
+
+.search-btn-neumorphic {
+  background: var(--neuro-accent-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.search-btn-neumorphic:hover {
+  background: var(--neuro-accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.search-btn-neumorphic:active {
+  transform: translateY(0);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+/* Job Filters */
+.job-filters-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.filter-group-neumorphic {
+  margin-bottom: var(--space-lg);
+}
+
+.filter-group-neumorphic:last-child {
+  margin-bottom: 0;
+}
+
+.filter-label-neumorphic {
+  display: block;
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+.filter-options-neumorphic {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.filter-btn-neumorphic {
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+}
+
+.filter-btn-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  color: var(--neuro-text-primary);
+}
+
+.filter-btn-neumorphic.active {
+  background: var(--neuro-accent-primary);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+/* Job Results */
+.job-results-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.job-result-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.job-result-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.job-company-logo-neumorphic {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: var(--neuro-bg-secondary);
+  box-shadow: var(--neuro-shadow-flat);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.job-company-logo-neumorphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.job-details-neumorphic {
+  flex: 1;
+}
+
+.job-title-neumorphic {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.job-company-neumorphic {
+  font-size: var(--font-size-base);
+  color: var(--neuro-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.job-meta-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.job-location-neumorphic,
+.job-type-neumorphic,
+.job-salary-neumorphic {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.job-location-neumorphic i,
+.job-type-neumorphic i,
+.job-salary-neumorphic i {
+  color: var(--neuro-accent-primary);
+}
+
+.job-skills-neumorphic {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.skill-tag-neumorphic {
+  background: var(--neuro-bg-secondary);
+  color: var(--neuro-text-primary);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.job-actions-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.job-save-btn-neumorphic {
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+}
+
+.job-save-btn-neumorphic:hover {
+  color: var(--neuro-accent-warning);
+  box-shadow: var(--neuro-shadow-floating);
+}
+
+.job-apply-btn-neumorphic {
+  background: var(--neuro-accent-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.job-apply-btn-neumorphic:hover {
+  background: var(--neuro-accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+.job-apply-btn-neumorphic:active {
+  transform: translateY(0);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+/* Recruiter Dashboard */
+.recruiter-dashboard-neumorphic {
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.dashboard-tabs-neumorphic {
+  display: flex;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: var(--space-lg);
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.tab-btn-neumorphic {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.tab-btn-neumorphic.active {
+  background: var(--neuro-accent-primary);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.tab-btn-neumorphic:hover:not(.active) {
+  color: var(--neuro-text-primary);
+}
+
+.tab-content-neumorphic {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content-neumorphic.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Job Post Form */
+.job-post-form-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-label-neumorphic {
+  display: block;
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+}
+
+.form-select-neumorphic {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.form-select-neumorphic:focus {
+  outline: none;
+  box-shadow: inset 6px 6px 12px var(--neuro-shadow-dark),
+              inset -6px -6px 12px var(--neuro-shadow-light);
+}
+
+.form-textarea-neumorphic {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light);
+  transition: all 0.2s ease;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-textarea-neumorphic:focus {
+  outline: none;
+  box-shadow: inset 6px 6px 12px var(--neuro-shadow-dark),
+              inset -6px -6px 12px var(--neuro-shadow-light);
+}
+
+.form-textarea-neumorphic::placeholder {
+  color: var(--neuro-text-muted);
+}
+
+/* Job Management */
+.jobs-list-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.job-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.3s ease;
+}
+
+.job-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.job-header-neumorphic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.job-header-neumorphic h3 {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0;
+}
+
+.job-status-neumorphic {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-status-neumorphic.active {
+  background: var(--neuro-accent-success);
+  color: white;
+}
+
+.job-details-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.job-details-neumorphic p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.job-details-neumorphic i {
+  color: var(--neuro-accent-primary);
+}
+
+.job-stats-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.stat-neumorphic {
+  text-align: center;
+  padding: var(--space-sm);
+  background: var(--neuro-bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.stat-number {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--neuro-accent-primary);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--neuro-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-actions-neumorphic {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.action-btn-neumorphic {
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+}
+
+.action-btn-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  color: var(--neuro-text-primary);
+}
+
+.action-btn-neumorphic.danger {
+  color: #e53e3e;
+}
+
+.action-btn-neumorphic.danger:hover {
+  color: #c53030;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+/* Candidates Management */
+.candidates-list-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.candidate-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.candidate-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.candidate-avatar-neumorphic {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: var(--neuro-bg-secondary);
+  box-shadow: var(--neuro-shadow-flat);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.candidate-avatar-neumorphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.candidate-info-neumorphic {
+  flex: 1;
+}
+
+.candidate-info-neumorphic h4 {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.candidate-info-neumorphic p {
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.candidate-skills-neumorphic {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.candidate-actions-neumorphic {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Responsive Design for Job Search & Dashboard */
+@media (max-width: 768px) {
+  .search-inputs-neumorphic {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-result-card-neumorphic {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .job-meta-neumorphic {
+    justify-content: center;
+  }
+  
+  .job-actions-neumorphic {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .dashboard-tabs-neumorphic {
+    flex-direction: column;
+  }
+  
+  .form-row-neumorphic {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-stats-neumorphic {
+    justify-content: center;
+  }
+  
+  .candidate-card-neumorphic {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .candidate-actions-neumorphic {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-search-form-neumorphic,
+  .job-filters-neumorphic,
+  .job-result-card-neumorphic,
+  .job-card-neumorphic,
+  .candidate-card-neumorphic {
+    padding: var(--space-md);
+  }
+  
+  .filter-options-neumorphic {
+    justify-content: center;
+  }
+  
+  .job-actions-neumorphic {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .job-apply-btn-neumorphic {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Phase 3: Enhanced Navigation & Additional Features */
+
+/* Enhanced CTA Button Styles */
+.hire-now-btn {
+  background: linear-gradient(135deg, var(--neuro-accent-success), #4a7c34);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.hire-now-btn:hover {
+  background: linear-gradient(135deg, #4a7c34, var(--neuro-accent-success));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(86, 171, 47, 0.3);
+}
+
+.hire-now-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+/* Enhanced Mobile Navigation */
+.mobile-toggle-neumorphic.active .toggle-line-neumorphic:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle-neumorphic.active .toggle-line-neumorphic:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle-neumorphic.active .toggle-line-neumorphic:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Loading States */
+.loading-neumorphic {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Error States */
+.error-neumorphic {
+  background: #fed7d7;
+  border: 1px solid #feb2b2;
+  color: #c53030;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.success-neumorphic {
+  background: #c6f6d5;
+  border: 1px solid #9ae6b4;
+  color: #2f855a;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-sm);
+}
+
+/* Enhanced Form Validation */
+.form-input-neumorphic.error {
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light),
+              0 0 0 2px #e53e3e;
+}
+
+.form-input-neumorphic.success {
+  box-shadow: inset 4px 4px 8px var(--neuro-shadow-dark),
+              inset -4px -4px 8px var(--neuro-shadow-light),
+              0 0 0 2px var(--neuro-accent-success);
+}
+
+/* Notification System */
+.notification-neumorphic {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--neuro-shadow-floating);
+  z-index: 1050;
+  max-width: 400px;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+}
+
+.notification-neumorphic.show {
+  transform: translateX(0);
+}
+
+.notification-neumorphic.success {
+  border-left: 4px solid var(--neuro-accent-success);
+}
+
+.notification-neumorphic.error {
+  border-left: 4px solid #e53e3e;
+}
+
+.notification-neumorphic.warning {
+  border-left: 4px solid #f6ad55;
+}
+
+.notification-header-neumorphic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.notification-title-neumorphic {
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-base);
+}
+
+.notification-close-neumorphic {
+  background: none;
+  border: none;
+  color: var(--neuro-text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.notification-close-neumorphic:hover {
+  background: var(--neuro-bg-secondary);
+  color: var(--neuro-text-primary);
+}
+
+.notification-message-neumorphic {
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* Enhanced Tooltips */
+.tooltip-neumorphic {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-neumorphic::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neuro-bg-primary);
+  color: var(--neuro-text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  box-shadow: var(--neuro-shadow-floating);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  margin-bottom: 8px;
+}
+
+.tooltip-neumorphic::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--neuro-bg-primary);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  margin-bottom: 2px;
+}
+
+.tooltip-neumorphic:hover::before,
+.tooltip-neumorphic:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Enhanced Dropdown Menus */
+.dropdown-neumorphic {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-neumorphic {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neuro-shadow-floating);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+  padding: var(--space-sm) 0;
+}
+
+.dropdown-neumorphic.active .dropdown-content-neumorphic {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item-neumorphic {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--neuro-text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item-neumorphic:hover {
+  background: var(--neuro-bg-secondary);
+  color: var(--neuro-accent-primary);
+}
+
+/* Enhanced Modals */
+.modal-backdrop-neumorphic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-backdrop-neumorphic.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Enhanced Pagination */
+.pagination-neumorphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xl);
+}
+
+.pagination-btn-neumorphic {
+  background: var(--neuro-bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+  font-weight: 500;
+}
+
+.pagination-btn-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  color: var(--neuro-text-primary);
+}
+
+.pagination-btn-neumorphic.active {
+  background: var(--neuro-accent-primary);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.pagination-btn-neumorphic:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn-neumorphic:disabled:hover {
+  box-shadow: var(--neuro-shadow-flat);
+  color: var(--neuro-text-secondary);
+}
+
+/* Enhanced Search Suggestions */
+.search-suggestions-neumorphic {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neuro-shadow-floating);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.search-suggestions-neumorphic.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.suggestion-item-neumorphic {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--neuro-bg-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.suggestion-item-neumorphic:hover {
+  background: var(--neuro-bg-secondary);
+}
+
+.suggestion-item-neumorphic:last-child {
+  border-bottom: none;
+}
+
+.suggestion-icon-neumorphic {
+  color: var(--neuro-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.suggestion-text-neumorphic {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-sm);
+}
+
+/* Enhanced Progress Bars */
+.progress-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-full);
+  height: 8px;
+  overflow: hidden;
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.progress-bar-neumorphic {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neuro-accent-primary), var(--neuro-accent-secondary));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-bar-neumorphic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: progress-shimmer 2s infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Enhanced Tabs */
+.tabs-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--neuro-shadow-raised);
+  margin-bottom: var(--space-lg);
+}
+
+.tab-list-neumorphic {
+  display: flex;
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  box-shadow: inset 2px 2px 4px var(--neuro-shadow-dark),
+              inset -2px -2px 4px var(--neuro-shadow-light);
+}
+
+.tab-neumorphic {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--neuro-text-secondary);
+  font-weight: 500;
+}
+
+.tab-neumorphic.active {
+  background: var(--neuro-accent-primary);
+  color: white;
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.tab-neumorphic:hover:not(.active) {
+  color: var(--neuro-text-primary);
+}
+
+/* Enhanced Cards */
+.card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.card-header-neumorphic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.card-title-neumorphic {
+  color: var(--neuro-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-content-neumorphic {
+  color: var(--neuro-text-secondary);
+  line-height: 1.6;
+}
+
+.card-footer-neumorphic {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--neuro-bg-secondary);
+}
+
+/* Enhanced Badges */
+.badge-neumorphic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--neuro-shadow-flat);
+}
+
+.badge-neumorphic.primary {
+  background: var(--neuro-accent-primary);
+  color: white;
+}
+
+.badge-neumorphic.success {
+  background: var(--neuro-accent-success);
+  color: white;
+}
+
+.badge-neumorphic.warning {
+  background: var(--neuro-accent-warning);
+  color: white;
+}
+
+.badge-neumorphic.secondary {
+  background: var(--neuro-bg-secondary);
+  color: var(--neuro-text-primary);
+}
+
+/* Enhanced Animations */
+@keyframes pulse-neumorphic {
+  0%, 100% {
+    box-shadow: var(--neuro-shadow-raised);
+  }
+  50% {
+    box-shadow: var(--neuro-shadow-floating);
+  }
+}
+
+@keyframes rotate-neumorphic {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-in-neumorphic {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-neumorphic {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Utility Animation Classes */
+.animate-pulse-neumorphic {
+  animation: pulse-neumorphic 2s infinite;
+}
+
+.animate-rotate-neumorphic {
+  animation: rotate-neumorphic 1s linear infinite;
+}
+
+.animate-slide-in-neumorphic {
+  animation: slide-in-neumorphic 0.3s ease-out;
+}
+
+.animate-slide-out-neumorphic {
+  animation: slide-out-neumorphic 0.3s ease-out;
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neuro-shadow-dark);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neuro-accent-primary);
+}
+
+/* Focus Styles for Better Accessibility */
+*:focus {
+  outline: none;
+}
+
+.focus-visible-neumorphic:focus-visible {
+  outline: 2px solid var(--neuro-accent-primary);
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    --neuro-bg-primary: #2d3748;
+    --neuro-bg-secondary: #4a5568;
+    --neuro-bg-tertiary: #1a202c;
+    --neuro-shadow-light: #4a5568;
+    --neuro-shadow-dark: #1a202c;
+    --neuro-text-primary: #f7fafc;
+    --neuro-text-secondary: #e2e8f0;
+    --neuro-text-muted: #a0aec0;
+  }
+}
+
+/* Print Optimization */
+@media print {
+  .modal-overlay-neumorphic,
+  .notification-neumorphic,
+  .dropdown-content-neumorphic,
+  .search-suggestions-neumorphic {
+    display: none !important;
+  }
+  
+  .card-neumorphic,
+  .job-result-card-neumorphic {
+    box-shadow: none !important;
+    border: 1px solid #000;
+  }
+}/* Industries Section Styles */
+.industries-neumorphic {
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(135deg, var(--neuro-bg-primary) 0%, var(--neuro-bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.industries-grid-neumorphic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.industry-card-neumorphic {
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--neuro-shadow-raised);
+  padding: var(--space-xl);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.industry-card-neumorphic:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--neuro-shadow-floating);
+}
+
+.industry-card-neumorphic:active {
+  transform: translateY(-2px);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+.industry-inner-neumorphic {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.industry-icon-neumorphic {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  box-shadow: var(--neuro-shadow-flat);
+  background: var(--neuro-bg-secondary);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-icon-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  z-index: 1;
+}
+
+.industry-icon-neumorphic i {
+  font-size: var(--font-size-xl);
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-normal);
+}
+
+/* Industry-specific colors matching the image */
+.industry-icon-neumorphic.healthcare i {
+  color: #e74c3c;
+}
+
+.industry-icon-neumorphic.cleaning i {
+  color: #3498db;
+}
+
+.industry-icon-neumorphic.industrial i {
+  color: #95a5a6;
+}
+
+.industry-icon-neumorphic.admin i {
+  color: #2ecc71;
+}
+
+.industry-icon-neumorphic.education i {
+  color: #9b59b6;
+}
+
+.industry-icon-neumorphic.hospitality i {
+  color: #f39c12;
+}
+
+.industry-icon-neumorphic.tech i {
+  color: #667eea;
+}
+
+.industry-icon-neumorphic.retail i {
+  color: #e91e63;
+}
+
+.industry-card-neumorphic:hover .industry-icon-neumorphic {
+  transform: scale(1.1);
+  box-shadow: var(--neuro-shadow-raised);
+}
+
+.industry-title-neumorphic {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  margin: 0;
+  transition: all var(--transition-normal);
+}
+
+.industry-card-neumorphic:hover .industry-title-neumorphic {
+  color: var(--neuro-accent-primary);
+}
+
+.industries-action-neumorphic {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.view-all-button-neumorphic {
+  background: #4285f4;
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.view-all-button-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-normal);
+}
+
+.view-all-button-neumorphic:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+  background: #3367d6;
+}
+
+.view-all-button-neumorphic:hover::before {
+  left: 100%;
+}
+
+.view-all-button-neumorphic:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+}
+
+.view-all-button-neumorphic .button-icon-neumorphic {
+  transition: transform var(--transition-normal);
+}
+
+.view-all-button-neumorphic:hover .button-icon-neumorphic {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .industries-grid-neumorphic {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .industry-card-neumorphic {
+    padding: var(--space-lg);
+  }
+  
+  .industry-icon-neumorphic {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .industry-icon-neumorphic i {
+    font-size: var(--font-size-lg);
+  }
+  
+  .industry-title-neumorphic {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .industries-grid-neumorphic {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+  
+  .industry-card-neumorphic {
+    padding: var(--space-md);
+  }
+  
+  .industry-icon-neumorphic {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .industry-icon-neumorphic i {
+    font-size: var(--font-size-base);
+  }
+  
+  .industry-title-neumorphic {
+    font-size: var(--font-size-sm);
+  }
+}
+/* TRUSTED COMPANIES SECTION */
+.trusted-companies-neumorphic {
+  padding: var(--space-4xl) 0;
+  background: var(--neuro-bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.trusted-companies-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.02) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+}
+
+/* Header Styles */
+.trusted-header-neumorphic {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  position: relative;
+  z-index: 2;
+}
+
+.trusted-title-neumorphic {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
+}
+
+.trusted-subtitle-neumorphic {
+  font-size: var(--font-size-lg);
+  color: var(--neuro-text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Companies Grid */
+.companies-grid-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-4xl);
+}
+
+.company-row-neumorphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+/* Company Cards */
+.company-card-neumorphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+  min-height: 120px;
+}
+
+.company-card-neumorphic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.company-card-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-raised);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.company-card-neumorphic:hover::before {
+  opacity: 1;
+}
+
+.company-card-neumorphic:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--neuro-shadow-pressed);
+}
+
+/* Company Logos */
+.company-logo-neumorphic {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neuro-bg-secondary);
+  border-radius: var(--radius-full);
+  box-shadow: var(--neuro-shadow-inset);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.company-logo-neumorphic i {
+  font-size: var(--font-size-2xl);
+  color: var(--neuro-text-secondary);
+  transition: all 0.3s ease;
+}
+
+.company-card-neumorphic:hover .company-logo-neumorphic {
+  box-shadow: var(--neuro-shadow-raised);
+  transform: scale(1.1);
+}
+
+.company-card-neumorphic:hover .company-logo-neumorphic i {
+  color: var(--neuro-accent-primary);
+  transform: scale(1.1);
+}
+
+/* Company Names */
+.company-name-neumorphic {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--neuro-text-primary);
+  text-align: center;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.company-card-neumorphic:hover .company-name-neumorphic {
+  opacity: 1;
+  color: var(--neuro-accent-primary);
+  transform: translateY(-2px);
+}
+
+/* Partnership Stats */
+.partnership-stats-neumorphic {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3xl);
+  margin-top: var(--space-4xl);
+  flex-wrap: wrap;
+}
+
+.stat-item-neumorphic {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--neuro-shadow-raised);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.stat-item-neumorphic:hover {
+  box-shadow: var(--neuro-shadow-floating);
+  transform: translateY(-2px);
+}
+
+.stat-item-neumorphic .stat-number-neumorphic {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--neuro-accent-primary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item-neumorphic .stat-label-neumorphic {
+  position: relative;
+  
+  font-size: var(--font-size-sm);
+  color: var(--neuro-text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .company-row-neumorphic {
+    gap: var(--space-lg);
+  }
+  
+  .company-card-neumorphic {
+    min-width: 120px;
+    min-height: 100px;
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .company-logo-neumorphic {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .company-logo-neumorphic i {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .trusted-companies-neumorphic {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .trusted-title-neumorphic {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .trusted-subtitle-neumorphic {
+    font-size: var(--font-size-base);
+  }
+  
+  .company-row-neumorphic {
+    gap: var(--space-md);
+    justify-content: center;
+  }
+  
+  .company-card-neumorphic {
+    min-width: 100px;
+    min-height: 90px;
+    padding: var(--space-md);
+  }
+  
+  .company-logo-neumorphic {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .company-logo-neumorphic i {
+    font-size: var(--font-size-lg);
+  }
+  
+  .company-name-neumorphic {
+    font-size: var(--font-size-xs);
+  }
+  
+  .partnership-stats-neumorphic {
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .company-row-neumorphic {
+    gap: var(--space-sm);
+  }
+  
+  .company-card-neumorphic {
+    min-width: 80px;
+    min-height: 80px;
+    padding: var(--space-sm);
+  }
+  
+  .company-logo-neumorphic {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .company-logo-neumorphic i {
+    font-size: var(--font-size-base);
+  }
+  
+  .partnership-stats-neumorphic {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+}
+
+/* Animation for company cards */
+.company-card-neumorphic {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.company-card-neumorphic:nth-child(1) { animation-delay: 0.1s; }
+.company-card-neumorphic:nth-child(2) { animation-delay: 0.2s; }
+.company-card-neumorphic:nth-child(3) { animation-delay: 0.3s; }
+.company-card-neumorphic:nth-child(4) { animation-delay: 0.4s; }
+.company-card-neumorphic:nth-child(5) { animation-delay: 0.5s; }
+.company-card-neumorphic:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* HOW WE WORK SECTION */
+.how-we-work-neumorphic {
+  padding: var(--space-4xl) 0;
+  background: linear-gradient(135deg, var(--neuro-bg-primary) 0%, var(--neuro-bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-we-work-content-neumorphic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  margin-top: var(--space-3xl);
+}
+
+/* Left Side Image */
+.how-we-work-image-neumorphic {
+  position: relative;
+}
+
+.image-container-neumorphic {
+  position: relative;
+  padding: var(--space-md);
+}
+
+.neumorphic-image-card {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neuro-shadow-floating);
+  overflow: hidden;
+  position: relative;
+}
+
+.process-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.neumorphic-image-card:hover .process-image {
+  transform: scale(1.02);
+}
+
+/* Right Side Steps */
+.process-steps-neumorphic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.step-item-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  position: relative;
+}
+
+.step-number-wrapper-neumorphic {
+  flex-shrink: 0;
+}
+
+.step-number-neumorphic {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--neuro-accent-primary);
+  line-height: 1;
+  position: relative;
+  background: var(--neuro-bg-primary);
+  padding: var(--space-sm) var(--space-sm);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neuro-shadow-inset);
+  opacity: 0.8;
+}
+
+.step-content-wrapper-neumorphic {
+  display: flex;
+  gap: var(--space-lg);
+  background: var(--neuro-bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--neuro-shadow-flat);
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.step-item-neumorphic:hover .step-content-wrapper-neumorphic {
+  box-shadow: var(--neuro-shadow-raised);
+  transform: translateY(-4px);
+}
+
+.step-icon-neumorphic {
+  width: 60px;
+  height: 60px;
+  background: var(--neuro-accent-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
+  flex-shrink: 0;
+}
+
+.step-icon-neumorphic i {
+  font-size: var(--font-size-xl);
+  color: white;
+}
+
+.step-content-neumorphic {
+  flex: 1;
+}
+
+.step-title-neumorphic {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--neuro-text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.05em;
+}
+
+.step-description-neumorphic {
+  font-size: var(--font-size-base);
+  color: var(--neuro-text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .how-we-work-content-neumorphic {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .how-we-work-image-neumorphic {
+    order: 2;
+  }
+  
+  .process-steps-neumorphic {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-content-wrapper-neumorphic {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .step-icon-neumorphic {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .step-icon-neumorphic i {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .step-item-neumorphic {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .step-number-neumorphic {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .step-content-wrapper-neumorphic {
+    padding: var(--space-md);
+  }
+  
+  .step-title-neumorphic {
+    font-size: var(--font-size-lg);
+  }
+  
+  .step-description-neumorphic {
+    font-size: var(--font-size-sm);
+  }
+}

@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recruita - Neumorphic Hiring Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Revolutionary AI-powered hiring platform with neumorphic design">
+</head>
+<body>
+    <!-- Neumorphic Navigation -->
+    <nav class="navbar-neumorphic" id="navbar">
+        <div class="nav-container-neumorphic">
+            <!-- Neumorphic Logo Section -->
+            <div class="logo-section-neumorphic">
+                <div class="logo-wrapper-neumorphic">
+                    <img src="logo.png" alt="AI Recruita Logo" class="logo-circular-neumorphic">
+                    <div class="logo-glow-neumorphic"></div>
+                </div>
+                <div class="brand-identity-neumorphic">
+                    <span class="brand-name-neumorphic">AI Recruita</span>
+                    <span class="brand-subtitle-neumorphic">Smart Hiring</span>
+                </div>
+            </div>
+
+            <!-- Neumorphic Navigation Menu -->
+            <ul class="nav-menu-neumorphic" id="navMenu">
+                <li class="nav-item-neumorphic">
+                    <a href="#home" class="nav-link-neumorphic active">
+                        <span class="nav-icon-neumorphic"><i class="fas fa-home"></i></span>
+                        <span class="nav-text-neumorphic">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item-neumorphic">
+                    <a href="#job-search" class="nav-link-neumorphic">
+                        <span class="nav-icon-neumorphic"><i class="fas fa-search"></i></span>
+                        <span class="nav-text-neumorphic">Job Search</span>
+                    </a>
+                </li>
+                <li class="nav-item-neumorphic">
+                    <a href="#services" class="nav-link-neumorphic">
+                        <span class="nav-icon-neumorphic"><i class="fas fa-brain"></i></span>
+                        <span class="nav-text-neumorphic">Services</span>
+                    </a>
+                </li>
+                <li class="nav-item-neumorphic">
+                    <a href="#about" class="nav-link-neumorphic">
+                        <span class="nav-icon-neumorphic"><i class="fas fa-info-circle"></i></span>
+                        <span class="nav-text-neumorphic">About</span>
+                    </a>
+                </li>
+                <li class="nav-item-neumorphic">
+                    <a href="#contact" class="nav-link-neumorphic">
+                        <span class="nav-icon-neumorphic"><i class="fas fa-envelope"></i></span>
+                        <span class="nav-text-neumorphic">Contact</span>
+                    </a>
+                </li>
+                
+            </ul>
+
+            <!-- Neumorphic CTA Buttons -->
+            <div class="nav-actions-neumorphic">
+                
+                <button class="cta-button-neumorphic" id="loginBtn">
+                    <span class="button-content-neumorphic">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </span>
+                </button>
+                <div class="mobile-toggle-neumorphic" id="mobileToggle">
+                    <span class="toggle-line-neumorphic"></span>
+                    <span class="toggle-line-neumorphic"></span>
+                    <span class="toggle-line-neumorphic"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal-overlay-neumorphic" id="authModal">
+        <div class="modal-container-neumorphic">
+            <div class="modal-header-neumorphic">
+                <div class="modal-logo-neumorphic">
+                    <img src="logo.png" alt="AI Recruita" class="modal-logo-circular-neumorphic">
+                </div>
+                <button class="modal-close-neumorphic" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content-neumorphic">
+                <!-- Login Form -->
+                <div class="auth-form-neumorphic" id="loginForm">
+                    <div class="auth-header-neumorphic">
+                        <h2 class="auth-title-neumorphic">Welcome Back</h2>
+                        <p class="auth-subtitle-neumorphic">Sign in to your account</p>
+                    </div>
+                    
+                    <form class="form-neumorphic">
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-envelope input-icon-neumorphic"></i>
+                                <input type="email" class="form-input-neumorphic" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-lock input-icon-neumorphic"></i>
+                                <input type="password" class="form-input-neumorphic" placeholder="Password" required>
+                                <button type="button" class="password-toggle-neumorphic">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options-neumorphic">
+                            <label class="checkbox-neumorphic">
+                                <input type="checkbox">
+                                <span class="checkmark-neumorphic"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-link-neumorphic">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="auth-submit-neumorphic">
+                            <span class="button-text-neumorphic">Sign In</span>
+                            <span class="button-icon-neumorphic"><i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </form>
+                    
+                    <div class="auth-divider-neumorphic">
+                        <span>Or continue with</span>
+                    </div>
+                    
+                    <div class="social-login-neumorphic">
+                        <button class="social-btn-neumorphic google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="social-btn-neumorphic linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-switch-neumorphic">
+                        <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+                    </div>
+                </div>
+                
+                <!-- Signup Form -->
+                <div class="auth-form-neumorphic" id="signupForm" style="display: none;">
+                    <div class="auth-header-neumorphic">
+                        <h2 class="auth-title-neumorphic">Create Account</h2>
+                        <p class="auth-subtitle-neumorphic">Join AI Recruita today</p>
+                    </div>
+                    
+                    <div class="user-type-selector-neumorphic">
+                        <div class="user-type-option-neumorphic active" data-type="candidate">
+                            <i class="fas fa-user"></i>
+                            <span>Job Seeker</span>
+                        </div>
+                        <div class="user-type-option-neumorphic" data-type="recruiter">
+                            <i class="fas fa-building"></i>
+                            <span>Recruiter</span>
+                        </div>
+                    </div>
+                    
+                    <form class="form-neumorphic">
+                        <div class="form-row-neumorphic">
+                            <div class="form-group-neumorphic">
+                                <div class="input-wrapper-neumorphic">
+                                    <i class="fas fa-user input-icon-neumorphic"></i>
+                                    <input type="text" class="form-input-neumorphic" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <div class="form-group-neumorphic">
+                                <div class="input-wrapper-neumorphic">
+                                    <i class="fas fa-user input-icon-neumorphic"></i>
+                                    <input type="text" class="form-input-neumorphic" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-envelope input-icon-neumorphic"></i>
+                                <input type="email" class="form-input-neumorphic" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-phone input-icon-neumorphic"></i>
+                                <input type="tel" class="form-input-neumorphic" placeholder="Phone Number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-lock input-icon-neumorphic"></i>
+                                <input type="password" class="form-input-neumorphic" placeholder="Password" required>
+                                <button type="button" class="password-toggle-neumorphic">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <div class="input-wrapper-neumorphic">
+                                <i class="fas fa-lock input-icon-neumorphic"></i>
+                                <input type="password" class="form-input-neumorphic" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-neumorphic">
+                            <label class="checkbox-neumorphic">
+                                <input type="checkbox" required>
+                                <span class="checkmark-neumorphic"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="auth-submit-neumorphic">
+                            <span class="button-text-neumorphic">Create Account</span>
+                            <span class="button-icon-neumorphic"><i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </form>
+                    
+                    <div class="auth-switch-neumorphic">
+                        <p>Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recruiter Dashboard Modal -->
+    <div class="modal-overlay-neumorphic" id="recruiterModal">
+        <div class="modal-container-neumorphic large">
+            <div class="modal-header-neumorphic">
+                <div class="modal-title-neumorphic">
+                    <h2>Recruiter Dashboard</h2>
+                    <p>Post jobs and manage candidates</p>
+                </div>
+                <button class="modal-close-neumorphic" id="closeRecruiterModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content-neumorphic">
+                <div class="recruiter-dashboard-neumorphic">
+                    <div class="dashboard-tabs-neumorphic">
+                        <button class="tab-btn-neumorphic active" data-tab="post-job">
+                            <i class="fas fa-plus"></i>
+                            <span>Post Job</span>
+                        </button>
+                        <button class="tab-btn-neumorphic" data-tab="manage-jobs">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Manage Jobs</span>
+                        </button>
+                        <button class="tab-btn-neumorphic" data-tab="candidates">
+                            <i class="fas fa-users"></i>
+                            <span>Candidates</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Post Job Tab -->
+                    <div class="tab-content-neumorphic active" id="post-job">
+                        <form class="job-post-form-neumorphic">
+                            <div class="form-row-neumorphic">
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Job Title</label>
+                                    <input type="text" class="form-input-neumorphic" placeholder="e.g. Senior Software Engineer" required>
+                                </div>
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Company</label>
+                                    <input type="text" class="form-input-neumorphic" placeholder="Company Name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row-neumorphic">
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Location</label>
+                                    <input type="text" class="form-input-neumorphic" placeholder="e.g. New York, NY" required>
+                                </div>
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Job Type</label>
+                                    <select class="form-select-neumorphic" required>
+                                        <option value="">Select Job Type</option>
+                                        <option value="full-time">Full Time</option>
+                                        <option value="part-time">Part Time</option>
+                                        <option value="contract">Contract</option>
+                                        <option value="remote">Remote</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row-neumorphic">
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Salary Range</label>
+                                    <input type="text" class="form-input-neumorphic" placeholder="e.g. $80,000 - $120,000">
+                                </div>
+                                <div class="form-group-neumorphic">
+                                    <label class="form-label-neumorphic">Experience Level</label>
+                                    <select class="form-select-neumorphic" required>
+                                        <option value="">Select Experience</option>
+                                        <option value="entry">Entry Level</option>
+                                        <option value="mid">Mid Level</option>
+                                        <option value="senior">Senior Level</option>
+                                        <option value="executive">Executive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group-neumorphic">
+                                <label class="form-label-neumorphic">Job Description</label>
+                                <textarea class="form-textarea-neumorphic" rows="6" placeholder="Describe the role, responsibilities, and requirements..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group-neumorphic">
+                                <label class="form-label-neumorphic">Required Skills</label>
+                                <input type="text" class="form-input-neumorphic" placeholder="e.g. JavaScript, React, Node.js (comma separated)">
+                            </div>
+                            
+                            <button type="submit" class="form-submit-neumorphic">
+                                <span class="button-text-neumorphic">Post Job</span>
+                                <span class="button-icon-neumorphic"><i class="fas fa-rocket"></i></span>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Manage Jobs Tab -->
+                    <div class="tab-content-neumorphic" id="manage-jobs">
+                        <div class="jobs-list-neumorphic">
+                            <div class="job-card-neumorphic">
+                                <div class="job-header-neumorphic">
+                                    <h3>Senior Software Engineer</h3>
+                                    <div class="job-status-neumorphic active">Active</div>
+                                </div>
+                                <div class="job-details-neumorphic">
+                                    <p><i class="fas fa-building"></i> Tech Corp</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                                    <p><i class="fas fa-calendar"></i> Posted 2 days ago</p>
+                                </div>
+                                <div class="job-stats-neumorphic">
+                                    <div class="stat-neumorphic">
+                                        <span class="stat-number">24</span>
+                                        <span class="stat-label">Applications</span>
+                                    </div>
+                                    <div class="stat-neumorphic">
+                                        <span class="stat-number">8</span>
+                                        <span class="stat-label">Interviews</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions-neumorphic">
+                                    <button class="action-btn-neumorphic">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                    </button>
+                                    <button class="action-btn-neumorphic">
+                                        <i class="fas fa-users"></i>
+                                        View Candidates
+                                    </button>
+                                    <button class="action-btn-neumorphic danger">
+                                        <i class="fas fa-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Candidates Tab -->
+                    <div class="tab-content-neumorphic" id="candidates">
+                        <div class="candidates-list-neumorphic">
+                            <div class="candidate-card-neumorphic">
+                                <div class="candidate-avatar-neumorphic">
+                                    <img src="https://via.placeholder.com/60" alt="Candidate">
+                                </div>
+                                <div class="candidate-info-neumorphic">
+                                    <h4>John Smith</h4>
+                                    <p>Senior Software Engineer</p>
+                                    <div class="candidate-skills-neumorphic">
+                                        <span class="skill-tag-neumorphic">JavaScript</span>
+                                        <span class="skill-tag-neumorphic">React</span>
+                                        <span class="skill-tag-neumorphic">Node.js</span>
+                                    </div>
+                                </div>
+                                <div class="candidate-actions-neumorphic">
+                                    <button class="action-btn-neumorphic">
+                                        <i class="fas fa-eye"></i>
+                                        View Profile
+                                    </button>
+                                    <button class="action-btn-neumorphic">
+                                        <i class="fas fa-envelope"></i>
+                                        Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neumorphic Hero Section -->
+    <section class="hero-neumorphic" id="home">
+        <div class="hero-background-neumorphic">
+            <div class="neumorphic-shapes">
+                <div class="shape-circle shape-1"></div>
+                <div class="shape-circle shape-2"></div>
+                <div class="shape-square shape-3"></div>
+                <div class="shape-triangle shape-4"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content-neumorphic">
+            <!-- Neumorphic Hero Logo -->
+            <div class="hero-logo-neumorphic">
+                <div class="logo-container-neumorphic">
+                    <img src="logo.png" alt="AI Recruita" class="hero-logo-circular-neumorphic">
+                    <div class="logo-shadow-layers">
+                        <div class="shadow-layer layer-1"></div>
+                        <div class="shadow-layer layer-2"></div>
+                        <div class="shadow-layer layer-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neumorphic Typography -->
+            <div class="hero-text-neumorphic">
+                <h1 class="hero-title-neumorphic">
+                    <span class="title-word-neumorphic">Revolutionary</span>
+                    <span class="title-word-neumorphic accent">AI Hiring</span>
+                    <span class="title-word-neumorphic">Platform</span>
+                </h1>
+                
+                <p class="hero-description-neumorphic">
+                    Transform your recruitment process with our cutting-edge AI platform. 
+                    Discover perfect candidates faster and build exceptional teams with 
+                    intelligent hiring solutions.
+                </p>
+
+                <!-- Neumorphic Stats -->
+                <div class="stats-grid-neumorphic">
+                    <div class="stat-card-neumorphic" data-value="99">
+                        <div class="stat-inner-neumorphic">
+                            <div class="stat-number-neumorphic">99%</div>
+                            <div class="stat-label-neumorphic">Match Accuracy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card-neumorphic" data-value="24">
+                        <div class="stat-inner-neumorphic">
+                            <div class="stat-number-neumorphic">24H</div>
+                            <div class="stat-label-neumorphic">Avg. Hiring</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card-neumorphic" data-value="15000">
+                        <div class="stat-inner-neumorphic">
+                            <div class="stat-number-neumorphic">15K+</div>
+                            <div class="stat-label-neumorphic">Jobs Filled</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neumorphic Action Buttons -->
+                <div class="hero-actions-neumorphic">
+                    <button class="primary-button-neumorphic" id="startHiringBtn">
+                        <span class="button-text-neumorphic">Start Hiring Now</span>
+                        <span class="button-icon-neumorphic"><i class="fas fa-rocket"></i></span>
+                    </button>
+                    <a href="#job-search" class="secondary-button-neumorphic" id="jobSearchBtn">
+    <span class="button-text-neumorphic">Find Jobs</span>
+    <span class="button-icon-neumorphic"><i class="fas fa-search"></i></span>
+</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Neumorphic Scroll Indicator -->
+        <div class="scroll-indicator-neumorphic">
+            <div class="scroll-arrow-neumorphic">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Search Section -->
+    <section class="job-search-neumorphic" id="job-search">
+        <div class="container-neumorphic">
+            <div class="section-header-neumorphic">
+                <h2 class="section-title-neumorphic">Find Your Dream Job</h2>
+                <p class="section-subtitle-neumorphic">
+                    Discover thousands of job opportunities with AI-powered matching
+                </p>
+            </div>
+            
+            <!-- Job Search Form -->
+            <div class="job-search-form-neumorphic">
+                <div class="search-inputs-neumorphic">
+                    <div class="search-input-group-neumorphic">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Job title, keywords, or company" class="search-input-neumorphic">
+                    </div>
+                    <div class="search-input-group-neumorphic">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Location" class="search-input-neumorphic">
+                    </div>
+                    <button class="search-btn-neumorphic">
+                        <i class="fas fa-search"></i>
+                        <span>Search Jobs</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Job Filters -->
+            <div class="job-filters-neumorphic">
+                <div class="filter-group-neumorphic">
+                    <label class="filter-label-neumorphic">Job Type</label>
+                    <div class="filter-options-neumorphic">
+                        <button class="filter-btn-neumorphic active">All</button>
+                        <button class="filter-btn-neumorphic">Full Time</button>
+                        <button class="filter-btn-neumorphic">Part Time</button>
+                        <button class="filter-btn-neumorphic">Contract</button>
+                        <button class="filter-btn-neumorphic">Remote</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group-neumorphic">
+                    <label class="filter-label-neumorphic">Experience Level</label>
+                    <div class="filter-options-neumorphic">
+                        <button class="filter-btn-neumorphic active">All</button>
+                        <button class="filter-btn-neumorphic">Entry</button>
+                        <button class="filter-btn-neumorphic">Mid</button>
+                        <button class="filter-btn-neumorphic">Senior</button>
+                        <button class="filter-btn-neumorphic">Executive</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Job Results -->
+            <div class="job-results-neumorphic">
+                <div class="job-result-card-neumorphic">
+                    <div class="job-company-logo-neumorphic">
+                        <img src="https://via.placeholder.com/60" alt="Company Logo">
+                    </div>
+                    <div class="job-details-neumorphic">
+                        <h3 class="job-title-neumorphic">Senior Frontend Developer</h3>
+                        <p class="job-company-neumorphic">TechCorp Inc.</p>
+                        <div class="job-meta-neumorphic">
+                            <span class="job-location-neumorphic">
+                                <i class="fas fa-map-marker-alt"></i>
+                                San Francisco, CA
+                            </span>
+                            <span class="job-type-neumorphic">
+                                <i class="fas fa-clock"></i>
+                                Full Time
+                            </span>
+                            <span class="job-salary-neumorphic">
+                                <i class="fas fa-dollar-sign"></i>
+                                $120k - $150k
+                            </span>
+                        </div>
+                        <div class="job-skills-neumorphic">
+                            <span class="skill-tag-neumorphic">React</span>
+                            <span class="skill-tag-neumorphic">JavaScript</span>
+                            <span class="skill-tag-neumorphic">TypeScript</span>
+                            <span class="skill-tag-neumorphic">Node.js</span>
+                        </div>
+                    </div>
+                    <div class="job-actions-neumorphic">
+                        <button class="job-save-btn-neumorphic">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="job-apply-btn-neumorphic">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="job-result-card-neumorphic">
+                    <div class="job-company-logo-neumorphic">
+                        <img src="https://via.placeholder.com/60" alt="Company Logo">
+                    </div>
+                    <div class="job-details-neumorphic">
+                        <h3 class="job-title-neumorphic">UX/UI Designer</h3>
+                        <p class="job-company-neumorphic">Design Studio</p>
+                        <div class="job-meta-neumorphic">
+                            <span class="job-location-neumorphic">
+                                <i class="fas fa-map-marker-alt"></i>
+                                New York, NY
+                            </span>
+                            <span class="job-type-neumorphic">
+                                <i class="fas fa-clock"></i>
+                                Remote
+                            </span>
+                            <span class="job-salary-neumorphic">
+                                <i class="fas fa-dollar-sign"></i>
+                                $90k - $120k
+                            </span>
+                        </div>
+                        <div class="job-skills-neumorphic">
+                            <span class="skill-tag-neumorphic">Figma</span>
+                            <span class="skill-tag-neumorphic">Adobe XD</span>
+                            <span class="skill-tag-neumorphic">Sketch</span>
+                            <span class="skill-tag-neumorphic">Prototyping</span>
+                        </div>
+                    </div>
+                    <div class="job-actions-neumorphic">
+                        <button class="job-save-btn-neumorphic">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="job-apply-btn-neumorphic">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neumorphic Services Section -->
+    <section class="services-neumorphic" id="services">
+        <div class="container-neumorphic">
+            <!-- Neumorphic Section Header -->
+            <div class="section-header-neumorphic">
+                <div class="section-logo-neumorphic">
+                    <img src="logo.png" alt="AI Recruita" class="section-logo-circular-neumorphic">
+                </div>
+                <h2 class="section-title-neumorphic">AI-Powered Solutions</h2>
+                <p class="section-subtitle-neumorphic">
+                    Revolutionary artificial intelligence technology that transforms how you discover, 
+                    evaluate, and hire exceptional talent for your organization.
+                </p>
+            </div>
+
+            <!-- Neumorphic Services Grid -->
+            <div class="services-grid-neumorphic">
+                <div class="service-card-neumorphic">
+                    <div class="service-inner-neumorphic">
+                        <div class="service-icon-neumorphic">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="service-title-neumorphic">Smart Matching</h3>
+                        <p class="service-description-neumorphic">
+                            Advanced machine learning algorithms analyze candidate profiles and match them 
+                            with job requirements achieving 99.5% accuracy in compatibility assessment.
+                        </p>
+                        <div class="service-features-neumorphic">
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>AI-Powered Analysis</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cultural Fit Assessment</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Skill Verification</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card-neumorphic">
+                    <div class="service-inner-neumorphic">
+                        <div class="service-icon-neumorphic">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="service-title-neumorphic">AI Interviews</h3>
+                        <p class="service-description-neumorphic">
+                            Automated video screening with natural language processing to evaluate 
+                            both technical skills and personality traits comprehensively.
+                        </p>
+                        <div class="service-features-neumorphic">
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Automated Screening</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Personality Analysis</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Technical Assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card-neumorphic">
+                    <div class="service-inner-neumorphic">
+                        <div class="service-icon-neumorphic">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="service-title-neumorphic">Predictive Analytics</h3>
+                        <p class="service-description-neumorphic">
+                            Data-driven insights predict candidate success probability and provide 
+                            comprehensive hiring recommendations with advanced forecasting.
+                        </p>
+                        <div class="service-features-neumorphic">
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Success Prediction</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Performance Forecasting</span>
+                            </div>
+                            <div class="feature-item-neumorphic">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Risk Assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Industries We Serve Section -->
+    <section class="industries-neumorphic" id="industries">
+        <div class="container-neumorphic">
+            <!-- Neumorphic Section Header -->
+            <div class="section-header-neumorphic">
+                <div class="section-logo-neumorphic">
+                    <img src="logo.png" alt="AI Recruita" class="section-logo-circular-neumorphic">
+                </div>
+                <h2 class="section-title-neumorphic">Industries We Serve</h2>
+                <p class="section-subtitle-neumorphic">
+                    Our AI-powered recruitment solutions span across diverse industries, 
+                    helping organizations of all sizes find the perfect talent match.
+                </p>
+            </div>
+
+            <!-- Industries Grid -->
+            <div class="industries-grid-neumorphic">
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic healthcare">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Healthcare</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic cleaning">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Cleaning</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic industrial">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Industrial</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic admin">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Admin</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic education">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Education</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic hospitality">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Hospitality</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic tech">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">IT & Tech</h3>
+                    </div>
+                </div>
+
+                <div class="industry-card-neumorphic">
+                    <div class="industry-inner-neumorphic">
+                        <div class="industry-icon-neumorphic retail">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="industry-title-neumorphic">Retail</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Industries Button -->
+            <div class="industries-action-neumorphic">
+                <button class="view-all-button-neumorphic" id="viewAllIndustries">
+                    <span class="button-text-neumorphic">View All Industries</span>
+                    <span class="button-icon-neumorphic"><i class="fas fa-arrow-right"></i></span>
+                </button>
+            </div>
+        </div>
+    </section>
+      <!-- Trusted Companies Section -->
+    <section class="trusted-companies-neumorphic" id="trusted-companies">
+        <div class="container-neumorphic">
+            <div class="trusted-header-neumorphic">
+                <h2 class="trusted-title-neumorphic">Trusted by Leading Companies</h2>
+                <p class="trusted-subtitle-neumorphic">We partner with industry leaders to connect top talent with exceptional opportunities</p>
+            </div>
+            
+            <div class="companies-grid-neumorphic">
+                <!-- Top Row -->
+                <div class="company-row-neumorphic">
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Microsoft</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Google</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-amazon"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Amazon</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Apple</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-meta"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Meta</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Netflix</span>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row -->
+                <div class="company-row-neumorphic">
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-tesla"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Tesla</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fab fa-spotify"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Spotify</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Adobe</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Salesforce</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <span class="company-name-neumorphic">IBM</span>
+                    </div>
+                    
+                    <div class="company-card-neumorphic">
+                        <div class="company-logo-neumorphic">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <span class="company-name-neumorphic">Oracle</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partnership Stats -->
+            <div class="partnership-stats-neumorphic">
+                <div class="stat-item-neumorphic">
+                    <div class="stat-number-neumorphic">500+</div>
+                    <div class="stat-label-neumorphic">Partner Companies</div>
+                </div>
+                <div class="stat-item-neumorphic">
+                    <div class="stat-number-neumorphic">95%</div>
+                    <div class="stat-label-neumorphic">Success Rate</div>
+                </div>
+                <div class="stat-item-neumorphic">
+                    <div class="stat-number-neumorphic">24/7</div>
+                    <div class="stat-label-neumorphic">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Neumorphic About Section -->
+    <section class="about-neumorphic" id="about">
+        <div class="container-neumorphic">
+            <div class="about-grid-neumorphic">
+                <div class="about-content-neumorphic">
+                    <div class="about-badge-neumorphic">
+                        <img src="logo.png" alt="AI Recruita" class="badge-logo-circular-neumorphic">
+                        <span>About AI Recruita</span>
+                    </div>
+                    <h2 class="about-title-neumorphic">Pioneering the Future of Recruitment</h2>
+                    <p class="about-description-neumorphic">
+                        We're revolutionizing talent acquisition through advanced artificial intelligence, 
+                        machine learning, and predictive analytics. Our platform combines cutting-edge 
+                        technology with human expertise to deliver unparalleled hiring solutions.
+                    </p>
+                    <div class="about-achievements-neumorphic">
+                        <div class="achievement-card-neumorphic">
+                            <div class="achievement-inner-neumorphic">
+                                <div class="achievement-icon-neumorphic">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="achievement-content-neumorphic">
+                                    <h4>Industry Leader</h4>
+                                    <p>#1 AI Recruitment Platform</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="achievement-card-neumorphic">
+                            <div class="achievement-inner-neumorphic">
+                                <div class="achievement-icon-neumorphic">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="achievement-content-neumorphic">
+                                    <h4>Global Reach</h4>
+                                    <p>Fortune 500 Companies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual-neumorphic">
+                    <div class="visual-container-neumorphic">
+                        <img src="logo.png" alt="AI Recruita" class="about-logo-circular-neumorphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- How We Work Section -->
+    <section class="how-we-work-neumorphic" id="how-we-work">
+        <div class="container-neumorphic">
+            <div class="section-header-neumorphic">
+                <div class="section-logo-neumorphic">
+                    <img src="logo2.jpg" alt="AI Recruita" class="section-logo-circular-neumorphic">
+                </div>
+                <h2 class="section-title-neumorphic">HOW WE WORK</h2>
+                <p class="section-subtitle-neumorphic">
+                    Our streamlined process makes finding your dream job simple and efficient. Follow 
+                    these three easy steps to start your career journey with us.
+                </p>
+            </div>
+            
+            <div class="how-we-work-content-neumorphic">
+                <!-- Left Side Image -->
+                <div class="how-we-work-image-neumorphic">
+                    <div class="image-container-neumorphic">
+                        <div class="neumorphic-image-card">
+                            <img src="./logo2.jpg" alt="Career Journey" class="process-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side Steps -->
+                <div class="process-steps-neumorphic">
+                    <div class="step-item-neumorphic">
+                        <div class="step-number-wrapper-neumorphic">
+                            <div class="step-number-neumorphic">01</div>
+                        </div>
+                        <div class="step-content-wrapper-neumorphic">
+                            <div class="step-icon-neumorphic">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="step-content-neumorphic">
+                                <h3 class="step-title-neumorphic">FIND YOUR JOBS</h3>
+                                <p class="step-description-neumorphic">
+                                    Browse through thousands of job opportunities across multiple industries. 
+                                    Our AI-powered search helps you find the perfect match for your skills and career goals.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item-neumorphic">
+                        <div class="step-number-wrapper-neumorphic">
+                            <div class="step-number-neumorphic">02</div>
+                        </div>
+                        <div class="step-content-wrapper-neumorphic">
+                            <div class="step-icon-neumorphic">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="step-content-neumorphic">
+                                <h3 class="step-title-neumorphic">APPLY YOUR JOBS</h3>
+                                <p class="step-description-neumorphic">
+                                    Submit your application with our streamlined process. Upload your resume, 
+                                    complete your profile, and apply to multiple positions with just a few clicks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item-neumorphic">
+                        <div class="step-number-wrapper-neumorphic">
+                            <div class="step-number-neumorphic">03</div>
+                        </div>
+                        <div class="step-content-wrapper-neumorphic">
+                            <div class="step-icon-neumorphic">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="step-content-neumorphic">
+                                <h3 class="step-title-neumorphic">TEST & INTERVIEW</h3>
+                                <p class="step-description-neumorphic">
+                                    Participate in our assessment process and interview with top employers. 
+                                    Our AI-matching system ensures you're connected with the right opportunities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neumorphic Contact Section -->
+    <section class="contact-neumorphic" id="contact">
+        <div class="container-neumorphic">
+            <div class="contact-grid-neumorphic">
+                <div class="contact-info-neumorphic">
+                    <div class="contact-logo-neumorphic">
+                        <img src="logo.png" alt="AI Recruita" class="contact-logo-circular-neumorphic">
+                    </div>
+                    <h2 class="contact-title-neumorphic">Transform Your Hiring Today</h2>
+                    <p class="contact-description-neumorphic">
+                        Ready to revolutionize your recruitment process? Our AI experts are here 
+                        to help you build the perfect team.
+                    </p>
+                    <div class="contact-methods-neumorphic">
+                        <div class="contact-method-neumorphic">
+                            <div class="method-inner-neumorphic">
+                                <div class="method-icon-neumorphic">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-details-neumorphic">
+                                    <h4>Email</h4>
+                                    <a href="mailto:hello@airecruita.com">hello@airecruita.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-method-neumorphic">
+                            <div class="method-inner-neumorphic">
+                                <div class="method-icon-neumorphic">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-details-neumorphic">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form-neumorphic" id="contactForm">
+                    <div class="form-inner-neumorphic">
+                        <h3 class="form-title-neumorphic">Get Started Today</h3>
+                        <div class="form-group-neumorphic">
+                            <input type="text" class="form-input-neumorphic" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group-neumorphic">
+                            <input type="email" class="form-input-neumorphic" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group-neumorphic">
+                            <input type="text" class="form-input-neumorphic" placeholder="Company" required>
+                        </div>
+                        <div class="form-group-neumorphic">
+                            <textarea class="form-input-neumorphic" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-neumorphic">
+                            <span class="button-text-neumorphic">Send Message</span>
+                            <span class="button-icon-neumorphic"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neumorphic Footer -->
+    <footer class="footer-neumorphic">
+        <div class="container-neumorphic">
+            <div class="footer-content-neumorphic">
+                <div class="footer-brand-neumorphic">
+                    <div class="footer-logo-neumorphic">
+                        <img src="logo.png" alt="AI Recruita" class="footer-logo-circular-neumorphic">
+                        <div class="footer-brand-text-neumorphic">
+                            <span class="footer-brand-name">AI Recruita</span>
+                            <span class="footer-brand-tagline">Smart Hiring Solutions</span>
+                        </div>
+                    </div>
+                    <p class="footer-description-neumorphic">
+                        Transforming recruitment through artificial intelligence. 
+                        Building the future of hiring, one perfect match at a time.
+                    </p>
+                </div>
+                <div class="footer-links-neumorphic">
+                    <div class="footer-section-neumorphic">
+                        <h4>For Job Seekers</h4>
+                        <a href="#job-search">Find Jobs</a>
+                        <a href="#" id="jobSeekerSignup">Create Profile</a>
+                        <a href="#">Career Resources</a>
+                        <a href="#">Salary Guide</a>
+                    </div>
+                    <div class="footer-section-neumorphic">
+                        <h4>For Employers</h4>
+                        <a href="#" id="recruiterSignup">Post Jobs</a>
+                        <a href="#">Recruitment Solutions</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Success Stories</a>
+                    </div>
+                    <div class="footer-section-neumorphic">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-neumorphic">
+                <p>&copy; 2025 AI Recruita. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
